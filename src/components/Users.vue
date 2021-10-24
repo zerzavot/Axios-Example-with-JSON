@@ -23,13 +23,32 @@
             <input  type="password" placeholder="Parolanızı giriniz" class="form-control" v-model="mypassword"/>
         
         
-            <!---->
+            
             <label>Parametreler</label>
             <input placeholder="host" type="list" class="form-control" v-model="myhost"/>
             <input placeholder="port" type="list" class="form-control" v-model="myport"/>
-            <input placeholder="database name" type="list" class="form-control" v-model="mydatabaseName"/>
-            <input placeholder="type" type="list" class="form-control" v-model="mytype"/>
+            <input placeholder="database adı" type="list" class="form-control" v-model="mydatabaseName"/>
             <input placeholder="ref" type="list" class="form-control" v-model="myref"/>
+            <!-- <input placeholder="type" type="list" class="form-control" v-model="mytype"/> -->
+
+            <label>Type</label>
+            <div class="row">
+
+              <form>
+              
+              <input type="radio" id="array" name="fav_language" value="array" v-model="mytype">
+              <label for="array">array</label><br>
+              
+              <input type="radio" id="list" name="fav_language" value="list" v-model="mytype">
+              <label for="list">list</label><br>
+              
+
+              <input type="radio" id="object" name="fav_language" value="object" v-model="mytype">
+              <label for="object">object</label>
+            </form>
+            </div>
+            
+            
             
         </div>    
             <!--<input placeholder="selectedMemberships" type="list" class="form-control" v-model="myhost"/>-->
@@ -43,13 +62,13 @@
             <!-- panel-footer -->
             <div class="col-6 text-left">
                 <div class="previous">
-                    <button @click="addTodo"  type="submit" class="btn btn-primary pull-left">Kaydet<span class=""></span></button>
+                    <button @click="add"  type="submit" class="btn btn-primary pull-left">Kaydet<span class=""></span></button>
                     
                 </div>
             </div>
             <div class="col-6 text-right">
                 <div class="next">
-                    <button @click="save =!save"  type="submit" class="btn btn-primary pull-right">İptal<span class=""></span></button>
+                    <button @click="cancellation"  type="submit" class="btn btn-primary pull-right">İptal<span class=""></span></button>
 
                 </div>
             </div>
@@ -59,7 +78,7 @@
         <u1>
             <li v-for="user of users" :key="user.id">
                 
-                {{ user.userName +" --> Host: "+user.parameters.host+ " Port: "+user.parameters.port }}                
+                {{ user.userName +" --> Host: "+user.parameters.host+ " Port: "+user.parameters.port + " -->Type:"+ user.parameters.selectedMemberships.type}}                
                 
             </li>
         </u1>
@@ -104,40 +123,42 @@ export default {
     }
   },
   methods: {
-      async addTodo(){
-          if(this.save){
-              try{
-            
-
-              const res= await axios.post(baseURL, {userName: this.myname ,email: this.myemail, password:this.mypassword, parameters:{host: this.myhost, port: this.myport,databaseName:this.mydatabaseName ,selectedMemberships:{type:this.mytype,ref:this.myref}}});
-                this.users=[...this.users,res.data];
-
-                this.myname="";
-                this.myemail="";
-                this.mypassword="";
-                this.myhost="";
-                this.myport="";
-                this.mydatabaseName="";
-                this.mytype="";
-                this.myref="";
-
-
-                }catch (e) {
-                    console.error(e);
-                }
-          }else{
-                this.myname="";
-                this.myemail="";
-                this.mypassword="";
-                this.myhost="";
-                this.myport="";
-                this.mydatabaseName="";
-                this.mytype="";
-                this.myref="";
-            }
+      async add(){
           
+        try{
+        const res= await axios.post(baseURL, {userName: this.myname ,email: this.myemail, password:this.mypassword, parameters:{host: this.myhost, port: this.myport,databaseName:this.mydatabaseName ,selectedMemberships:{type:this.mytype,ref:this.myref}}});
+          this.users=[...this.users,res.data];
+
+          this.myname="";
+          this.myemail="";
+          this.mypassword="";
+          this.myhost="";
+          this.myport="";
+          this.mydatabaseName="";
+          this.mytype="";
+          this.myref="";
+
+
+          }catch (e) {
+              console.error(e);
+          }
+          
+          
+      },
+      async cancellation(){
+          this.myname="";
+          this.myemail="";
+          this.mypassword="";
+          this.myhost="";
+          this.myport="";
+          this.mydatabaseName="";
+          this.mytype="";
+          this.myref="";
+
       }
+
   }
+
 };
 </script>
 
@@ -150,14 +171,7 @@ li {
   color: white;
 }
 
-input {
-  width: 100%;
-  padding: 0.1rem;
-  border-radius: 0.3rem;
-  border: 1px solid #fd9644;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
+
 
 
 .btn-text-left{

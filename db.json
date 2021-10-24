@@ -17,7 +17,7 @@
     },
     {
       "id": "2",
-      "userName": "Tolgor",
+      "userName": "Tolgorabi",
       "email": "tolgor@example.com",
       "password": "123oo",
       "parameters": {
@@ -25,40 +25,40 @@
         "port": "5432",
         "databaseName": "ilkdb",
         "selectedMemberships": {
-          "type": "array",
+          "type": "list",
           "ref": "component/schemas"
         }
       }
     },
     {
-      "userName": "ali",
-      "email": "ali@gmail.com",
+      "userName": "AliCenap",
+      "email": "alicenap@gmail.com",
       "password": "1243",
       "parameters": {
         "host": "myhost",
         "port": "4321",
         "databaseName": "ntdb",
         "selectedMemberships": {
-          "type": "tor",
-          "ref": "reff"
+          "type": "array",
+          "ref": "ref/ali/db"
         }
       },
       "id": "qc3uXMi"
     },
     {
-      "userName": "aa",
-      "email": "aa",
-      "password": "aa",
+      "userName": "rekoplast",
+      "email": "reko@example.com",
+      "password": "parola1234",
       "parameters": {
-        "host": "aaa",
-        "port": "aa",
-        "databaseName": "aaa",
+        "host": "reko",
+        "port": "7564",
+        "databaseName": "dbmy",
         "selectedMemberships": {
-          "type": "aaa",
-          "ref": "aaa"
+          "type": "object",
+          "ref": "/reko/docu/db"
         }
       },
-      "id": "PQqjO0z"
+      "id": "ll7b3kz"
     }
   ]
 }
