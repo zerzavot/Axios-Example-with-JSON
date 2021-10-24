@@ -31,4 +31,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### References
 
-Axios [link] (https://developer.school/how-to-use-vue-js-json-server-and-axios)
+Axios [here](https://developer.school/how-to-use-vue-js-json-server-and-axios).
