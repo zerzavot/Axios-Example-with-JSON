@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "userName": "Feyzu",
+      "email": "feyzu@example.com",
+      "password": "opp",
+      "parameters": {
+        "host": "secondPostgres",
+        "port": "5432",
+        "databaseName": "mydb",
+        "selectedMemberships": {
+          "type": "array",
+          "ref": "component/schemas"
+        }
+      }
+    },
+    {
+      "id": "2",
+      "userName": "Tolgor",
+      "email": "tolgor@example.com",
+      "password": "123oo",
+      "parameters": {
+        "host": "firstPostgres",
+        "port": "5432",
+        "databaseName": "ilkdb",
+        "selectedMemberships": {
+          "type": "array",
+          "ref": "component/schemas"
+        }
+      }
+    },
+    {
+      "userName": "ali",
+      "email": "ali@gmail.com",
+      "password": "1243",
+      "parameters": {
+        "host": "myhost",
+        "port": "4321",
+        "databaseName": "ntdb",
+        "selectedMemberships": {
+          "type": "tor",
+          "ref": "reff"
+        }
+      },
+      "id": "qc3uXMi"
+    },
+    {
+      "userName": "aa",
+      "email": "aa",
+      "password": "aa",
+      "parameters": {
+        "host": "aaa",
+        "port": "aa",
+        "databaseName": "aaa",
+        "selectedMemberships": {
+          "type": "aaa",
+          "ref": "aaa"
+        }
+      },
+      "id": "PQqjO0z"
+    }
+  ]
+}
